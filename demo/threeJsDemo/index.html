@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -24,19 +24,36 @@
         75,
         window.innerWidth / window.innerHeight,
         0.1,
-        1000
+        1000,
       );
       const renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(renderer.domElement);
-
       // 照明を追加
-      const light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(10, 10, 10).normalize();
+      // 全体を照らすアンビエントライト
+      const light = new THREE.DirectionalLight(0xffffff, 0.4);
+      light.position.set(5, 2, 5);
       scene.add(light);
+      // 光源(照明)を表示
+      const directionalLightHelper = new THREE.DirectionalLightHelper(light, 2);
+      scene.add(directionalLightHelper);
 
-      const ambientLight = new THREE.AmbientLight(0x404040, 1.5); // 全体を照らすアンビエントライト
+      const light02 = new THREE.DirectionalLight(0xffffff, 1);
+      light02.position.set(0, 10, 0);
+      scene.add(light02);
+
+      const directionalLightHelper02 = new THREE.DirectionalLightHelper(
+        light02,
+        2,
+      );
+      scene.add(directionalLightHelper02);
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
       scene.add(ambientLight);
+
+      // x,y,z軸を表示
+      const axesHelper = new THREE.AxesHelper(180);
+      scene.add(axesHelper);
 
       // GLTFLoaderを使ってモデルをロード
       const loader = new THREE.GLTFLoader();
@@ -50,11 +67,13 @@
         undefined,
         function (error) {
           console.error(error);
-        }
+        },
       );
 
       // カメラの位置を調整
       camera.position.z = 5;
+      camera.position.x = 5;
+      camera.position.y = 3;
 
       // OrbitControls を作成してカメラとレンダラーをリンク
       const controls = new THREE.OrbitControls(camera, renderer.domElement);
