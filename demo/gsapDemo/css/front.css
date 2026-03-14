@@ -1,0 +1,156 @@
+.demo-02 {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100vh;
+	.shutter-04 {
+		position: relative;
+		z-index: 7;
+		width: 100%;
+		height: 100%;
+		.overlay {
+			position: absolute;
+			left: 0;
+			top: 0;
+
+			opacity: 0;
+			visibility: hidden;
+			width: 100%;
+			height: 100%;
+			/* 先行バー：流れて消える */
+			&.overlay-first {
+				z-index: 1;
+				background: linear-gradient(90deg, rgb(162, 56, 64) 0%, rgb(196, 78, 39) 100%);
+			}
+
+			/* 後続：本体オーバーレイ */
+			&.overlay-after {
+				z-index: 2;
+				background: linear-gradient(90deg, rgba(227, 119, 128, 1) 0%, rgba(237, 156, 129, 1) 100%);
+
+			}
+		}
+	}
+	.text-rotation-02 {
+		display: inline-block;
+		white-space: nowrap;
+		width: 100%;
+		position: absolute;
+		z-index: 4;
+		bottom:0;
+		left: 0;
+		span {
+			display: inline-block;
+			font-family: Antonio, sans-serif;
+			font-weight: 400;
+			background: linear-gradient(45deg, 
+				#e37780 0%,
+				#ed9c81 100%
+			);
+			-webkit-text-fill-color: transparent;
+			text-fill-color: transparent;
+			background-clip: text;
+			display: inline-block;
+			padding-right: 4rem;
+			font-size: 12rem;
+			letter-spacing: 1rem;
+		}
+	}
+	.main-img {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		width: 100%;
+		height: 100%;
+		img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.bg-overlay {
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.1);
+	}
+	.bg-grade {
+		position: absolute;
+		z-index: 3;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, rgba(227, 119, 128, 1) 0%, rgba(227, 119, 128, 1) 28%, rgba(227, 119, 128, 0.73) 45%, rgba(248, 190, 164, 0.25) 70%, rgba(255, 214, 176, 0) 100%);
+	}
+	.container {
+		position: relative;
+		z-index: 6;
+		max-width: 1920px;
+		height: 100%;
+		padding: 0 2% 0 8%;
+		display: flex;
+		align-items: center;
+		.text {
+			.en {
+				display: flex;
+				align-items: center;
+				color: #fff;
+				font-family: 'Jost';
+				font-weight: 600;
+				letter-spacing: 0.1rem;
+				font-size: 2.5rem;
+				&::before {
+					content: "";
+					background: #fff;
+					margin: 0 10px 0 0;
+					font-size: 0.7em;
+					width: 10rem;
+					height: 1px;
+				}
+			}
+			h2 {
+				color: #fff;
+				font-size: 5rem;
+				margin: 2rem 0 0 0;
+
+			}
+			.sentence {
+				margin: 3rem 0 0 0;
+				width: 60rem;
+				p {
+					color: rgba(255, 255, 255, 0.9);
+					font-weight: 500;
+					padding: 1.5rem 0 1.5rem 0;
+					letter-spacing: 0.05rem;
+					line-height: 1.8;
+					font-size: 1.65rem;
+				}
+			}
+			.button {
+				a {
+					display: inline-flex;
+					justify-content: center;
+					align-items: center;
+					background: #fff;
+					box-shadow: rgba(144, 67, 67, 0.2) 0px 7px 29px 0px;
+					padding: 1.5rem 3rem 1.5rem 3rem;
+					border-radius: 3px;
+					min-width: 25rem;
+					margin: 2.5rem 0 0 0;
+					span {
+						color: #dd5661;
+						font-weight: 600;
+						letter-spacing: 0.25rem;
+						font-size: 2rem;
+					}
+				}
+			}
+		}
+	}
+}

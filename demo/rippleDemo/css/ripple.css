@@ -1,0 +1,104 @@
+/* =========================================================================  */
+
+/* ripple-01 */
+
+/* ========================================================================= */
+
+
+.ripple-01 {
+    width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+    span {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+        display: block;
+        background: linear-gradient(45deg, 
+            #e37780 0%,
+            #ed9c81 100%
+        );
+		border-radius: 50%;
+		width: 10vh;
+		height: 10vh;
+    }
+}
+
+/* =========================================================================  */
+
+/* ripple-02 */
+
+/* ========================================================================= */
+
+.ripple-02 {
+    width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+    span {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+        display: block;
+		border-radius: 50%;
+		width: 10vh;
+		height: 10vh;
+		&:nth-child(1){
+			z-index: 1;
+			background: linear-gradient(45deg, 
+				#1e1011 0%,
+				#261009 100%
+        	);
+
+		}
+		&:nth-child(2){
+			z-index: 2;
+			background: linear-gradient(45deg, 
+				#e37780 0%,
+				#ed9c81 100%
+        	);
+		}
+    }
+}
+
+/* =========================================================================  */
+
+/* ripple-03 */
+
+/* ========================================================================= */
+
+.ripple-03 {
+    width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+    span {
+		position: absolute;
+        display: block;
+		border-radius: 50%;
+		width: 10vh;
+		height: 10vh;
+		&:nth-child(1){
+			right: 0;
+			top: 0;
+			z-index: 1;
+			background: linear-gradient(45deg, 
+				#1e1011 0%,
+				#261009 100%
+        	);
+
+		}
+		&:nth-child(2){
+			left: 0;
+			bottom : 0;
+			z-index: 2;
+			background: linear-gradient(45deg, 
+				#e37780 0%,
+				#ed9c81 100%
+        	);
+		}
+    }
+}

@@ -1,0 +1,134 @@
+/* =========================================================================  */
+
+/* rem値初期化 html font-size: 62.5% 1rem = 10px */
+
+/* ========================================================================= */
+
+html {
+  font-size: 62.5%;
+}
+
+@media screen and (width >= 1024px) and (width <= 1280px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media screen and (width >= 768px) and (width <= 1023px) {
+  html {
+    font-size: 56%;
+  }
+}
+
+@media screen and (width <= 767px) {
+  html {
+    font-size: 53%;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  color: #333;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.5;
+  background: var(--gradient-base);
+  min-height: 100vh;
+}
+
+/* z-indexの階層管理 */
+section,
+main,
+div {
+  position: relative;
+  z-index: 2;
+}
+
+/* 背景グラデーション */
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 30vh;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle at center,
+    rgb(255 154 158 / 80%) 0%,
+    rgb(250 208 196 / 40%) 50%,
+    rgb(161 196 253 / 10%) 80%,
+    transparent 100%
+  );
+  width: 70vw;
+  height: 70vh;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* メインコンテンツ */
+.title-container {
+  position: relative;
+  z-index: 1;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 15rem 2rem 6rem;
+}
+
+/* タイトル */
+h1 {
+  line-height: 1.1;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+h1 .en {
+  display: block;
+  font-family: Antonio, sans-serif;
+  font-weight: 400;
+  background: linear-gradient(45deg, #dc42a4 0%, #dc7146 70%, #e2b24a 100%);
+  background-clip: text;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  font-size: 8rem;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.explain {
+  color: #222;
+  line-height: 1.25;
+  text-align: center;
+  margin: 1rem 0 5.6rem;
+
+  .en {
+    font-family: Jost, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    font-size: 1.5rem;
+  }
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  z-index: 10;
+  nav {
+    ul {
+      display: flex;
+      gap: 24px;
+      li {
+        a {
+          color: #fff;
+          font-weight: 500;
+          letter-spacing: 0.1rem;
+          font-size: 1.5rem;
+          &.active {
+            color: #e37780;
+          }
+        }
+      }
+    }
+  }
+}

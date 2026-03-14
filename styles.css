@@ -1,0 +1,32 @@
+
+html{
+
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.5;
+  background: var(--gradient-base);
+  min-height: 100vh;
+}
+
+.page-width {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.content nav {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}

@@ -1,0 +1,36 @@
+:root {
+    /* Colors */
+    --color-primary: #6C5CE7;
+    --color-accent: #FF6B81;
+    --color-background: #F8F5FF;
+    --color-text: #333333;
+    --color-white: #FFFFFF;
+    
+    /* Gradients */
+    --gradient-base: linear-gradient(135deg, #F8F5FF 0%, #F0EBFF 100%);
+    --gradient-circle: 
+        radial-gradient(at 40% 20%, hsla(318, 73%, 86%, 0.79) 0px, transparent 50%),
+        radial-gradient(at 64% 68%, hsla(37, 100%, 81%, 0.79) 0px, transparent 50%),
+        radial-gradient(at 40% 60%, hsla(336, 83%, 43%, 0.92) 0px, transparent 50%);
+    
+    /* Typography */
+    --font-main: 'Nunito Sans', sans-serif;
+    --font-heading: 'Antonio', sans-serif;
+    --font-jp: 'Noto Sans JP', sans-serif;
+    
+    /* Font Weights */
+    --font-regular: 400;
+    --font-semibold: 600;
+    --font-bold: 700;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+} 
