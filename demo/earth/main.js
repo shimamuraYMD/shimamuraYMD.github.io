@@ -11,15 +11,23 @@ function init() {
   // シーンの作成
   scene = new THREE.Scene();
 
+  // 軸ヘルパー
+  // const axesHelper = new THREE.AxesHelper(1000);
+  // scene.add(axesHelper);
+  
+  //平面グリッドヘルパー
+  // const gridHelper = new THREE.GridHelper(2000, 50, 0xffff00);
+  // scene.add(gridHelper);
+
   // カメラの作成
   // PerspetiveCamera(視野角, アスペクト比, 開始距離, 終了距離)
   camera = new THREE.PerspectiveCamera(
     50,
     window.innerWidth / window.innerHeight,
     0.1,
-    1000,
+    3000,
   );
-  camera.position.set(0, 0, 500);
+  camera.position.set(0, 0, 600);
 
   // レンダラーの作成
   renderer = new THREE.WebGLRenderer({ alpha: true });
@@ -40,8 +48,6 @@ function init() {
   earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
   // シーンに追加
   scene.add(earthMesh);
-
-
 
   // SphereGeometry(半径, 横分割数, 縦分割数)
   const moonGeometry = new THREE.SphereGeometry(30, 64, 32);
@@ -79,11 +85,19 @@ function onWindowResize() {
 
 // フレームごとのアニメーション
 function animate() {
-  moonMesh.position.set(
-    300 * Math.sin(Date.now() / 1000),
-    300 * Math.sin(Date.now() / 1000),
-    300 * Math.cos(Date.now() / 1000),
-  );
+  const t = Date.now() / 1000;
+  const radius = 300;
+  const inclination = (5.14 * Math.PI) / 180; // 軌道の傾き
+
+  // X-Z平面上の円運動
+  const x0 = radius * Math.sin(t);
+  const y0 = 0;
+  const z0 = radius * Math.cos(t);
+
+  const y = y0 * Math.cos(inclination) - z0 * Math.sin(inclination);
+  const z = y0 * Math.sin(inclination) + z0 * Math.cos(inclination);
+
+  moonMesh.position.set(x0, y, z);
   moonMesh.rotation.y += 0.01;
   earthMesh.rotation.y += 0.005;
   requestAnimationFrame(animate);
